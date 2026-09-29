@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Accessibility Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header role="banner" class="site-header">
+        <div class="container header-flex">
+            <div class="logo">
+                <a href="/" aria-label="Tech Accessibility Blog Home">A11yBlog</a>
+            </div>
+            <nav role="navigation" aria-label="Main Navigation">
+                <button aria-expanded="false" aria-controls="nav-list" id="menu-toggle" class="menu-toggle">
+                    Menu
+                </button>
+                <ul id="nav-list" class="nav-list" hidden>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#articles">Articles</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" role="main" class="container">
+        <h1>Latest Insights on Web Accessibility</h1>
+        
+        <section aria-labelledby="articles-heading" id="articles">
+            <h2 id="articles-heading">Recent Articles</h2>
+            
+            <article class="blog-post">
+                <div class="post-image">
+                    <!-- Descriptive alt text for visually impaired users -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Person sitting at a desk using a laptop with a screen reader software active">
+                </div>
+                <div class="post-content">
+                    <h3><a href="#article-1">The Importance of Semantic HTML</a></h3>
+                    <p class="post-meta">Published on <time datetime="2023-10-12">October 12, 2023</time> by Jane Doe</p>
+                    <p>Semantic HTML forms the foundation of web accessibility. It allows screen readers to accurately convey the structure and meaning of a page to users with visual impairments.</p>
+                    <!-- aria-label adds context beyond just 'Read More' -->
+                    <a href="#article-1" aria-label="Read more about The Importance of Semantic HTML" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Close up of a person's hands typing on a mechanical keyboard">
+                </div>
+                <div class="post-content">
+                    <h3><a href="#article-2">Keyboard Navigation Best Practices</a></h3>
+                    <p class="post-meta">Published on <time datetime="2023-10-18">October 18, 2023</time> by John Smith</p>
+                    <p>Ensuring your website is fully navigable via a keyboard is critical. Learn how to manage focus states and avoid keyboard traps in modern web applications.</p>
+                    <a href="#article-2" aria-label="Read more about Keyboard Navigation Best Practices" class="read-more">Read More</a>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer role="contentinfo" class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Tech Accessibility Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

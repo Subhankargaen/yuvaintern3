@@ -1,0 +1,177 @@
+/* Custom properties for high contrast themes */
+:root {
+    --text-main: #111111;
+    --text-light: #444444;
+    --bg-main: #ffffff;
+    --bg-secondary: #f4f4f4;
+    --primary-color: #0056b3; /* High contrast blue against white (> 4.5:1) */
+    --primary-hover: #003d82;
+    --focus-ring: #ff5722;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Skip link - accessible to keyboard users but hidden visually until focused */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.2s;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* Header & Nav */
+.site-header {
+    background: var(--bg-secondary);
+    padding: 20px 0;
+    border-bottom: 2px solid #ccc;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-list a:hover {
+    text-decoration: underline;
+    color: var(--primary-hover);
+}
+
+/* Clear Focus styles for ALL interactive elements */
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.menu-toggle {
+    display: none; /* hidden on desktop */
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+/* Blog Posts */
+.blog-post {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.post-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.post-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+.read-more:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+    background: var(--bg-secondary);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid #ccc;
+    margin-top: 40px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: var(--bg-secondary);
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .nav-list:not([hidden]) {
+        display: flex;
+    }
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
